@@ -19,22 +19,13 @@
 <body>
   <div class="profile-page-wrap">
     <div class="scanned-hint">
-      <span class="caption" data-scanned>Scanned from a referral · a warm intro</span>
+      <span class="scanned-hint__avatar" data-friend-avatar-wrap><img data-friend-avatar src="images/julie.webp" alt="" /></span>
+      <span class="caption" data-scanned>Julie thought you two should meet.</span>
     </div>
 
     <div data-view>
       <!-- ── Coach card (in-page) ────────────────────────────── -->
       <article class="profile-card in-page">
-        <section class="profile-endorsement" data-endorsement>
-          <div class="profile-endorsement__label eyebrow-muted" data-endorsement-label>Julie recommends Daniel</div>
-          <div class="profile-endorsement__sig">
-            <span class="profile-endorsement__sig-avatar" aria-hidden="true"><img data-friend-avatar src="images/julie.webp" alt="" /></span>
-            <span class="profile-endorsement__sig-name" data-friend-sig>Julie, <span class="profile-endorsement__sig-rel"></span></span>
-          </div>
-        </section>
-
-        <hr class="profile-rule" />
-
         <section class="profile-meet">
           <div class="profile-meet__head">
             <div class="profile-meet__avatar img-frame"><img data-coach-avatar src="images/paul.webp" alt="" /></div>
@@ -117,13 +108,11 @@
       // ── Endorsement ──
       if (friend) {
         document.querySelector('[data-scanned]').textContent = friend.name + " thought you two should meet.";
-        document.querySelector('[data-endorsement-label]').textContent = friend.name + " recommends " + first;
         document.querySelector('[data-friend-avatar]').src = friend.avatar || "images/julie.webp";
-        var sig = document.querySelector('[data-friend-sig]');
-        sig.firstChild.textContent = friend.name + ", ";
-        sig.querySelector('.profile-endorsement__sig-rel').textContent = friend.rel || (first + "'s friend");
       } else {
-        document.querySelector('[data-endorsement]').style.display = 'none';
+        document.querySelector('[data-scanned]').textContent = "A warm introduction";
+        var av = document.querySelector('[data-friend-avatar-wrap]');
+        if (av) av.style.display = 'none';
       }
 
       // ── Coach ──
