@@ -1487,7 +1487,7 @@ em.serif-italic, .serif-italic {
   margin-bottom: 18px;
   border: 1px solid var(--rule-soft);
 }
-.referral__photo img { object-position: center 28%; }
+.referral__photo img { object-position: center center; }
 
 .referral__name {
   font-family: var(--serif);

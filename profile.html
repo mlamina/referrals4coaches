@@ -28,9 +28,9 @@
       <article class="profile-card in-page">
         <section class="profile-meet">
           <div class="profile-meet__head">
-            <div class="profile-meet__avatar img-frame"><img data-coach-avatar src="images/paul.webp" alt="" /></div>
+            <div class="profile-meet__avatar img-frame"><img data-coach-avatar src="images/coach-headshot.webp" alt="" /></div>
             <div class="profile-meet__id">
-              <h1 class="profile-meet__name" data-coach-name>Daniel Mercer</h1>
+              <h1 class="profile-meet__name" data-coach-name>Diana Mercer</h1>
               <div class="profile-meet__details caption" data-coach-details>Leadership &amp; executive coach · San Francisco</div>
             </div>
           </div>
@@ -43,7 +43,7 @@
       <section class="profile-form">
         <div class="container-narrow" style="padding:0">
           <p class="form-intro">
-            If you'd like to talk, leave your details. <em data-coach-first>Daniel</em> will
+            If you'd like to talk, leave your details. <em data-coach-first>Diana</em> will
             reach out personally if it's a fit.
           </p>
 
@@ -57,7 +57,7 @@
               <label for="p-contact">Phone or email</label>
               <input id="p-contact" class="input" type="text" autocomplete="email" placeholder="however you'd like to be reached" />
               <div class="helper" style="flex-direction:row">
-                <span>Only <span data-coach-first2>Daniel</span> will see this. No list, no spam.</span>
+                <span>Only <span data-coach-first2>Diana</span> will see this. No list, no spam.</span>
               </div>
             </div>
 
@@ -65,7 +65,7 @@
               <label for="p-note">What's going on?</label>
               <textarea id="p-note" class="textarea" maxlength="320" placeholder="A sentence on what you're working through, or what made you want to reach out…"></textarea>
               <div class="helper">
-                <span>A line or two is plenty — enough to give <span data-coach-first3>Daniel</span> a sense of you.</span>
+                <span>A line or two is plenty — enough to give <span data-coach-first3>Diana</span> a sense of you.</span>
                 <span class="count">0 / 320</span>
               </div>
             </div>
@@ -88,8 +88,8 @@
     <!-- ── Confirmation ──────────────────────────────────────── -->
     <div class="profile-confirm fade-in" data-confirm hidden>
       <div class="mark" aria-hidden="true">·</div>
-      <h2 data-confirm-title>Your details are on the way to Daniel.</h2>
-      <p data-confirm-sub>If it's a fit, he'll reach out personally.</p>
+      <h2 data-confirm-title>Your details are on the way to Diana.</h2>
+      <p data-confirm-sub>If it's a fit, she'll reach out personally.</p>
       <p style="margin-top:28px;font-style:italic">That's it. No app, no inbox, no waiting screen.<br />Go enjoy the rest of your day.</p>
       <div style="margin-top:56px"><a href="index.html" class="btn-link">← what is Referrals4Coaches?</a></div>
     </div>
@@ -122,7 +122,7 @@
       document.querySelector('[data-coach-bio]').textContent = coach.bio;
 
       var avatar = document.querySelector('[data-coach-avatar]');
-      avatar.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/paul.webp';
+      avatar.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/coach-headshot.webp';
       avatar.alt = coach.name;
 
       // First-name slots scattered through the form copy

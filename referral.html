@@ -27,10 +27,10 @@
       <div class="referral__eyebrow" data-eyebrow>recommends</div>
 
       <div class="referral__photo img-frame">
-        <img data-coach-photo src="images/paul.webp" alt="" />
+        <img data-coach-photo src="images/coach-headshot.webp" alt="" />
       </div>
 
-      <h1 class="referral__name" data-coach-name>Daniel Mercer</h1>
+      <h1 class="referral__name" data-coach-name>Diana Mercer</h1>
       <div class="referral__title" data-coach-title>Leadership &amp; executive coach · San Francisco</div>
 
       <div class="referral__qr" aria-label="QR code to scan">
@@ -62,7 +62,7 @@
       else eyebrow.textContent = "Recommended";
 
       var photo = document.querySelector('[data-coach-photo]');
-      photo.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/paul.webp';
+      photo.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/coach-headshot.webp';
       photo.alt = coach.name;
 
       document.querySelector('[data-coach-name]').textContent = coach.name;

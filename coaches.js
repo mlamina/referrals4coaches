@@ -11,12 +11,12 @@
  */
 (function () {
   var COACHES = {
-    daniel: {
-      name: "Daniel Mercer",
+    diana: {
+      name: "Diana Mercer",
       title: "Leadership & executive coach",
       location: "San Francisco",
-      photos: ["images/paul.webp", "images/garden-party.webp", "images/rooftop.webp"],
-      avatar: "images/paul.webp",
+      photos: ["images/coach-headshot.webp"],
+      avatar: "images/coach-headshot.webp",
       bio:
         "I help founders and senior leaders get unstuck — the kind of stuck that " +
         "doesn't show up on a roadmap. Fifteen years coaching execs through scaling " +
@@ -26,19 +26,19 @@
       friends: {
         julie: {
           name: "Julie",
-          rel: "Daniel's friend & former client",
+          rel: "Diana's friend & former client",
           avatar: "images/julie.webp",
           endorsement:
-            "I worked with Daniel through the messiest stretch of my company's " +
-            "growth. He's the rare coach who actually changes how you think — not " +
+            "I worked with Diana through the messiest stretch of my company's " +
+            "growth. She's the rare coach who actually changes how you think — not " +
             "with frameworks, but by asking the one question you've been avoiding. " +
-            "If you lead people, talk to him."
+            "If you lead people, talk to her."
         }
       }
     }
   };
 
-  var DEFAULT_COACH = "daniel";
+  var DEFAULT_COACH = "diana";
   var DEFAULT_FRIEND = "julie";
 
   function params() {
