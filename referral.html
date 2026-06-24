@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Referrals4Coaches — show this</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600&display=swap"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="referral">
+    <div class="referral__brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="referral__brand-mark">Referrals4Coaches</span>
+    </div>
+
+    <main class="referral__card">
+      <div class="referral__eyebrow" data-eyebrow>recommends</div>
+
+      <div class="referral__photo img-frame">
+        <img data-coach-photo src="images/paul.webp" alt="" />
+      </div>
+
+      <h1 class="referral__name" data-coach-name>Daniel Mercer</h1>
+      <div class="referral__title" data-coach-title>Leadership &amp; executive coach · San Francisco</div>
+
+      <div class="referral__qr" aria-label="QR code to scan">
+        <canvas data-qr width="280" height="280"></canvas>
+      </div>
+
+      <div class="referral__hint">Point your camera here to see the full profile.</div>
+      <a class="referral__fallback" data-fallback href="profile.html">Or open the profile →</a>
+    </main>
+
+    <footer class="referral__foot">
+      <span class="caption">A warm intro from someone who knows them.</span>
+      <a class="caption referral__what" href="index.html">What is this? →</a>
+    </footer>
+  </div>
+
+  <script src="coaches.js"></script>
+  <script src="qrcode.min.js"></script>
+  <script>
+    (function () {
+      var ctx = window.R4C.resolve();
+      var coach = ctx.coach;
+      var friend = ctx.friend;
+
+      // ── Fill the card ──
+      document.title = "Referrals4Coaches — " + coach.name;
+      var eyebrow = document.querySelector('[data-eyebrow]');
+      if (friend) eyebrow.textContent = friend.name + " recommends";
+      else eyebrow.textContent = "Recommended";
+
+      var photo = document.querySelector('[data-coach-photo]');
+      photo.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/paul.webp';
+      photo.alt = coach.name;
+
+      document.querySelector('[data-coach-name]').textContent = coach.name;
+      document.querySelector('[data-coach-title]').textContent =
+        coach.title + (coach.location ? " · " + coach.location : "");
+
+      var fallback = document.querySelector('[data-fallback]');
+      fallback.href = ctx.profileUrl;
+
+      // ── Render a real, scannable QR pointing at the profile URL ──
+      var canvas = document.querySelector('[data-qr]');
+      var render = function () {
+        if (!window.QRCode || !window.QRCode.toCanvas) return false;
+        window.QRCode.toCanvas(
+          canvas,
+          ctx.profileUrl,
+          { width: 280, margin: 1, color: { dark: '#18181B', light: '#FFFFFF' } },
+          function (err) {
+            if (err) {
+              // Last-resort fallback: lean on the text link below.
+              canvas.style.display = 'none';
+            }
+          }
+        );
+        return true;
+      };
+      if (!render()) {
+        // Library still loading — retry briefly.
+        var tries = 0;
+        var t = setInterval(function () {
+          tries++;
+          if (render() || tries > 40) clearInterval(t);
+        }, 100);
+      }
+    })();
+  </script>
+</body>
+</html>

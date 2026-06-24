@@ -1,0 +1,501 @@
+/* profile-card + phone frame — used in waitlist mockups AND profile.html */
+
+.phone-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  transition: transform 300ms ease;
+}
+
+.phone-label {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+.phone {
+  width: 320px;
+  height: 660px;
+  background: var(--ink-dark);
+  border-radius: 38px;
+  padding: 10px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.05) inset,
+    0 0 0 1px rgba(0,0,0,0.1),
+    0 30px 60px -20px rgba(20,17,13,0.30),
+    0 12px 24px -10px rgba(20,17,13,0.18);
+  position: relative;
+}
+
+.phone__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: 28px;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.phone__screen::-webkit-scrollbar { width: 0; }
+
+.phone__notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86px;
+  height: 22px;
+  background: var(--ink-dark);
+  border-radius: 14px;
+  z-index: 2;
+}
+
+.phone__home {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* ── Profile card ────────────────────────────────────────────── */
+
+.profile-card {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  padding: 44px 22px 36px;
+}
+
+.profile-card.in-page {
+  padding: 72px clamp(20px, 5vw, 56px) 88px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Part 1 — endorsement */
+.profile-endorsement {
+  position: relative;
+  padding: 0 0 28px;
+}
+
+.profile-endorsement__label {
+  margin-bottom: 18px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.profile-endorsement__glyph {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-variation-settings: "opsz" 72;
+  font-size: 80px;
+  line-height: 0.4;
+  color: var(--accent);
+  opacity: 0.75;
+  pointer-events: none;
+  margin: 14px 0 -10px;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.profile-card.in-page .profile-endorsement__glyph {
+  font-size: 144px;
+  margin: 22px 0 -16px;
+}
+
+.profile-endorsement__text {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 22px;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.32;
+  letter-spacing: -0.008em;
+  font-weight: 400;
+  font-variation-settings: "opsz" 24;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.profile-card.in-page .profile-endorsement__text {
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.3;
+  font-variation-settings: "opsz" 32;
+}
+
+.profile-endorsement__sig {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-2);
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-endorsement__sig-name {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.profile-endorsement__sig-rel {
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+.profile-endorsement__sig-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: inline-block;
+  background: var(--bg-2);
+  border: 1px solid var(--rule-soft);
+}
+
+.profile-endorsement__sig-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.profile-card.in-page .profile-endorsement__sig {
+  font-size: 18px;
+  margin-top: 28px;
+  gap: 14px;
+}
+
+.profile-card.in-page .profile-endorsement__sig-avatar {
+  width: 52px;
+  height: 52px;
+}
+
+/* divider rule between endorsement and meet */
+.profile-rule {
+  border: 0;
+  border-top: 1px solid var(--rule-soft);
+  margin: 28px 0 32px;
+}
+
+.profile-card.in-page .profile-rule {
+  margin: 48px 0 48px;
+}
+
+/* Part 2 — the single */
+.profile-meet__photos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+/* 2 photos: side-by-side, larger one on the left */
+.profile-meet__photos:has(.profile-meet__photo:nth-child(2)):not(:has(.profile-meet__photo:nth-child(3))) {
+  grid-template-columns: 1.4fr 1fr;
+}
+
+/* 3 photos: big left, two stacked right — together they form a square block */
+.profile-meet__photos:has(.profile-meet__photo:nth-child(3)) {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  aspect-ratio: 1 / 1;
+}
+
+.profile-meet__photos:has(.profile-meet__photo:nth-child(3)) .profile-meet__photo:nth-child(1) {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.profile-meet__photos:has(.profile-meet__photo:nth-child(3)) .profile-meet__photo:nth-child(2),
+.profile-meet__photos:has(.profile-meet__photo:nth-child(3)) .profile-meet__photo:nth-child(3) {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+.profile-meet__photo {
+  aspect-ratio: 4/5;
+  border-radius: 4px;
+  background: var(--bg-2);
+}
+
+.profile-card.in-page .profile-meet__photo {
+  aspect-ratio: 3/4;
+}
+
+.profile-meet__name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.022em;
+  font-variation-settings: "opsz" 36;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.profile-card.in-page .profile-meet__name {
+  font-size: clamp(56px, 7vw, 80px);
+  margin-bottom: 12px;
+}
+
+.profile-meet__details {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+
+.profile-card.in-page .profile-meet__details {
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.profile-meet__bio {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.profile-card.in-page .profile-meet__bio {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* ── Profile page (full) form ────────────────────────────────── */
+
+.profile-page-wrap {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.profile-form {
+  background: var(--bg-2);
+  padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 56px);
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.profile-form .container-narrow {
+  padding: 0;
+}
+
+.profile-form .form-intro {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.32;
+  color: var(--ink);
+  margin: 0 0 36px;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+  font-variation-settings: "opsz" 28;
+}
+
+.profile-form .form-intro em { color: var(--accent-ink); font-style: italic; }
+
+.profile-form .field { margin-bottom: 22px; }
+
+.profile-form .helper {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.profile-form .helper .count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.photo-upload {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.photo-upload__preview {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px dashed var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photo-upload__preview img { width: 100%; height: 100%; object-fit: cover; }
+
+.photo-upload__preview .placeholder {
+  font-family: var(--sans);
+  font-size: 28px;
+  color: var(--ink-4);
+  font-weight: 300;
+}
+
+.photo-upload__label {
+  flex: 1;
+}
+
+.photo-upload__btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.photo-upload__btn:hover { border-color: var(--ink); }
+.photo-upload input[type="file"] { display: none; }
+
+.photo-upload__hint {
+  display: block;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Confirmation state */
+.profile-confirm {
+  padding: clamp(80px, 14vh, 160px) clamp(20px, 5vw, 56px);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-confirm .mark {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 32px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+}
+
+.profile-confirm h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.018em;
+  font-variation-settings: "opsz" 36;
+  color: var(--ink);
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+
+.profile-confirm p {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+.profile-confirm p + p {
+  margin-top: 18px;
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink-3);
+}
+
+/* QR scan banner */
+.scanned-hint {
+  background: var(--bg-2);
+  padding: 14px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.scanned-hint .caption {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-family: var(--sans);
+  letter-spacing: 0.02em;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  /* Endorsement label + body sizes tightened */
+  .profile-card.in-page { padding: 48px 20px 64px; }
+  .profile-card.in-page .profile-endorsement__text {
+    font-size: 22px;
+    line-height: 1.32;
+  }
+  .profile-card.in-page .profile-meet__name { font-size: 44px; }
+  .profile-card.in-page .profile-meet__bio { font-size: 16px; }
+  .profile-card.in-page .profile-meet__details { font-size: 12px; }
+
+  /* Profile form */
+  .profile-form { padding: 40px 20px; }
+  .profile-form .form-intro { font-size: 20px; margin-bottom: 24px; }
+
+  /* Photo-upload stacks at mobile so the button sits beneath the preview */
+  .photo-upload {
+    flex-direction: row;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .photo-upload__preview { width: 72px; height: 72px; }
+  .photo-upload__btn { padding: 8px 14px; font-size: 12px; }
+  .photo-upload__hint { font-size: 12px; }
+
+  /* Helper wraps under the textarea on tight screens */
+  .profile-form .helper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Confirmation */
+  .profile-confirm { padding: 80px 20px; }
+  .profile-confirm h2 { font-size: 28px; }
+  .profile-confirm p { font-size: 16px; }
+}

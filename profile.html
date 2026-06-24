@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Referrals4Coaches — an introduction</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600&display=swap"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <div class="profile-page-wrap">
+    <div class="scanned-hint">
+      <span class="caption" data-scanned>Scanned from a referral · a warm intro</span>
+    </div>
+
+    <div data-view>
+      <!-- ── Coach card (in-page) ────────────────────────────── -->
+      <article class="profile-card in-page">
+        <section class="profile-endorsement" data-endorsement>
+          <div class="profile-endorsement__label eyebrow-muted" data-endorsement-label>Julie recommends Daniel</div>
+          <blockquote class="profile-endorsement__text" data-endorsement-text></blockquote>
+          <div class="profile-endorsement__sig">
+            <span class="profile-endorsement__sig-avatar" aria-hidden="true"><img data-friend-avatar src="images/julie.webp" alt="" /></span>
+            <span class="profile-endorsement__sig-name" data-friend-sig>Julie, <span class="profile-endorsement__sig-rel"></span></span>
+          </div>
+        </section>
+
+        <hr class="profile-rule" />
+
+        <section class="profile-meet">
+          <div class="profile-meet__photos" data-coach-photos></div>
+          <h1 class="profile-meet__name" data-coach-name>Daniel Mercer</h1>
+          <div class="profile-meet__details caption" data-coach-details>Leadership &amp; executive coach · San Francisco</div>
+          <p class="profile-meet__bio" data-coach-bio></p>
+        </section>
+      </article>
+
+      <!-- ── Contact form ────────────────────────────────────── -->
+      <section class="profile-form">
+        <div class="container-narrow" style="padding:0">
+          <p class="form-intro">
+            If you'd like to talk, leave your details. <em data-coach-first>Daniel</em> will
+            reach out personally if it's a fit.
+          </p>
+
+          <form data-profile-form>
+            <div class="field">
+              <label for="p-name">Your name</label>
+              <input id="p-name" class="input" type="text" placeholder="first and last is great" />
+            </div>
+
+            <div class="field">
+              <label for="p-contact">Phone or email</label>
+              <input id="p-contact" class="input" type="text" autocomplete="email" placeholder="however you'd like to be reached" />
+              <div class="helper" style="flex-direction:row">
+                <span>Only <span data-coach-first2>Daniel</span> will see this. No list, no spam.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="p-note">What's going on?</label>
+              <textarea id="p-note" class="textarea" maxlength="320" placeholder="A sentence on what you're working through, or what made you want to reach out…"></textarea>
+              <div class="helper">
+                <span>A line or two is plenty — enough to give <span data-coach-first3>Daniel</span> a sense of you.</span>
+                <span class="count">0 / 320</span>
+              </div>
+            </div>
+
+            <button class="btn" type="submit" data-submit disabled style="margin-top:12px;opacity:0.45;cursor:not-allowed" title="Add your name, a way to reach you, and a line first.">Send your details</button>
+
+            <div class="helper" data-hints style="margin-top:14px">Add your name. And a way to reach you. And a line about what's going on.</div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="caption">Referrals4Coaches</div>
+          <div class="caption" style="font-family:var(--serif);font-style:italic;letter-spacing:0;font-size:14px">Private link. Not indexed.</div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ── Confirmation ──────────────────────────────────────── -->
+    <div class="profile-confirm fade-in" data-confirm hidden>
+      <div class="mark" aria-hidden="true">·</div>
+      <h2 data-confirm-title>Your details are on the way to Daniel.</h2>
+      <p data-confirm-sub>If it's a fit, he'll reach out personally.</p>
+      <p style="margin-top:28px;font-style:italic">That's it. No app, no inbox, no waiting screen.<br />Go enjoy the rest of your day.</p>
+      <div style="margin-top:56px"><a href="index.html" class="btn-link">← what is Referrals4Coaches?</a></div>
+    </div>
+  </div>
+
+  <script src="coaches.js"></script>
+  <script>
+    (function () {
+      var ctx = window.R4C.resolve();
+      var coach = ctx.coach;
+      var friend = ctx.friend;
+      var first = (coach.name || "").split(" ")[0] || coach.name;
+
+      document.title = "Referrals4Coaches — meet " + coach.name;
+
+      // ── Endorsement ──
+      if (friend) {
+        document.querySelector('[data-scanned]').textContent = friend.name + " thought you two should meet.";
+        document.querySelector('[data-endorsement-label]').textContent = friend.name + " recommends " + first;
+        document.querySelector('[data-endorsement-text]').textContent = friend.endorsement;
+        document.querySelector('[data-friend-avatar]').src = friend.avatar || "images/julie.webp";
+        var sig = document.querySelector('[data-friend-sig]');
+        sig.firstChild.textContent = friend.name + ", ";
+        sig.querySelector('.profile-endorsement__sig-rel').textContent = friend.rel || (first + "'s friend");
+      } else {
+        document.querySelector('[data-endorsement]').style.display = 'none';
+      }
+
+      // ── Coach ──
+      document.querySelector('[data-coach-name]').textContent = coach.name;
+      document.querySelector('[data-coach-details]').textContent =
+        coach.title + (coach.location ? " · " + coach.location : "");
+      document.querySelector('[data-coach-bio]').textContent = coach.bio;
+
+      var photoWrap = document.querySelector('[data-coach-photos]');
+      (coach.photos || []).slice(0, 3).forEach(function (src) {
+        var d = document.createElement('div');
+        d.className = 'profile-meet__photo img-frame';
+        var img = document.createElement('img');
+        img.src = src; img.alt = '';
+        d.appendChild(img);
+        photoWrap.appendChild(d);
+      });
+
+      // First-name slots scattered through the form copy
+      Array.prototype.forEach.call(
+        document.querySelectorAll('[data-coach-first],[data-coach-first2],[data-coach-first3]'),
+        function (el) { el.textContent = first; }
+      );
+      document.querySelector('[data-confirm-title]').textContent = "Your details are on the way to " + first + ".";
+      document.querySelector('[data-confirm-sub]').textContent = "If it's a fit, " + (coach.name.split(" ")[0] || "they") + " will reach out personally.";
+
+      // ── Form behavior (client-side only — mock submission) ──
+      var form = document.querySelector('[data-profile-form]');
+      var nameI = document.getElementById('p-name');
+      var contactI = document.getElementById('p-contact');
+      var noteI = document.getElementById('p-note');
+      var countEl = form.querySelector('.count');
+      var submit = form.querySelector('[data-submit]');
+      var hints = form.querySelector('[data-hints]');
+
+      var isReady = function () {
+        return nameI.value.trim() && contactI.value.trim() && noteI.value.trim();
+      };
+
+      var update = function () {
+        var ready = isReady();
+        submit.disabled = !ready;
+        submit.style.opacity = ready ? '1' : '0.45';
+        submit.style.cursor = ready ? 'pointer' : 'not-allowed';
+        submit.title = ready ? '' : 'Add your name, a way to reach you, and a line first.';
+        if (ready) {
+          hints.hidden = true;
+        } else {
+          hints.hidden = false;
+          var s = '';
+          if (!nameI.value.trim()) s += 'Add your name. ';
+          if (!contactI.value.trim()) s += 'And a way to reach you. ';
+          if (!noteI.value.trim()) s += 'And a line about what’s going on.';
+          hints.textContent = s;
+        }
+      };
+
+      noteI.addEventListener('input', function () {
+        countEl.textContent = noteI.value.length + ' / 320';
+        update();
+      });
+      [nameI, contactI].forEach(function (el) { el.addEventListener('input', update); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!isReady()) return;
+        document.querySelector('[data-view]').hidden = true;
+        document.querySelector('[data-confirm]').hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      update();
+    })();
+  </script>
+</body>
+</html>

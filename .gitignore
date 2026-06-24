@@ -1,0 +1,16 @@
+# PAI / session working state
+.claude/
+MEMORY/
+Plans/
+
+# Scratch screenshots / verification artifacts
+*.png
+/tmp/
+
+# Editor undo/swap files
+*.un~
+*.swp
+*~
+
+# OS
+.DS_Store
