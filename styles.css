@@ -1038,6 +1038,113 @@ em.serif-italic, .serif-italic {
 .editor-mock__id { min-width: 0; }
 .editor-mock__head .editor-mock__details { margin-bottom: 0; }
 
+/* ── Referrals inbox mock (pricing step) ─────────────────────── */
+
+.inbox {
+  height: 100%;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding-top: 52px;
+}
+
+.inbox__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 22px 16px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.inbox__title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.inbox__count {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.inbox__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.inbox__item {
+  display: flex;
+  gap: 12px;
+  padding: 15px 22px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.inbox__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklch, var(--accent) 14%, var(--bg));
+  color: var(--accent-ink);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.inbox__body { min-width: 0; flex: 1; }
+
+.inbox__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.inbox__name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.inbox__time {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-4);
+  flex-shrink: 0;
+}
+
+.inbox__note {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  margin: 3px 0 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.inbox__via {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.inbox__via strong { color: var(--accent); font-weight: 600; }
+
 .editor-mock__name {
   font-family: var(--serif);
   font-weight: 400;
