@@ -27,7 +27,6 @@
       <article class="profile-card in-page">
         <section class="profile-endorsement" data-endorsement>
           <div class="profile-endorsement__label eyebrow-muted" data-endorsement-label>Julie recommends Daniel</div>
-          <blockquote class="profile-endorsement__text" data-endorsement-text></blockquote>
           <div class="profile-endorsement__sig">
             <span class="profile-endorsement__sig-avatar" aria-hidden="true"><img data-friend-avatar src="images/julie.webp" alt="" /></span>
             <span class="profile-endorsement__sig-name" data-friend-sig>Julie, <span class="profile-endorsement__sig-rel"></span></span>
@@ -119,7 +118,6 @@
       if (friend) {
         document.querySelector('[data-scanned]').textContent = friend.name + " thought you two should meet.";
         document.querySelector('[data-endorsement-label]').textContent = friend.name + " recommends " + first;
-        document.querySelector('[data-endorsement-text]').textContent = friend.endorsement;
         document.querySelector('[data-friend-avatar]').src = friend.avatar || "images/julie.webp";
         var sig = document.querySelector('[data-friend-sig]');
         sig.firstChild.textContent = friend.name + ", ";
