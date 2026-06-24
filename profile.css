@@ -283,6 +283,40 @@
   line-height: 1.65;
 }
 
+/* LinkedIn-style header: round avatar left, name + title right, rule below */
+.profile-meet__head {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3.5vw, 26px);
+  margin-bottom: 22px;
+}
+
+.profile-meet__avatar {
+  width: clamp(84px, 20vw, 116px);
+  height: clamp(84px, 20vw, 116px);
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid var(--rule-soft);
+}
+
+.profile-meet__avatar img { object-position: center 28%; }
+
+.profile-meet__id { min-width: 0; }
+
+/* Name big / title small, scaled down so it sits beside the avatar */
+.profile-card.in-page .profile-meet__head .profile-meet__name {
+  font-size: clamp(32px, 6vw, 46px);
+  margin: 0 0 6px;
+}
+
+.profile-meet__head .profile-meet__details { margin-bottom: 0; }
+
+.profile-meet__rule {
+  border: 0;
+  border-top: 1px solid var(--rule-soft);
+  margin: 0 0 28px;
+}
+
 /* ── Profile page (full) form ────────────────────────────────── */
 
 .profile-page-wrap {

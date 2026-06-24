@@ -37,9 +37,14 @@
         <hr class="profile-rule" />
 
         <section class="profile-meet">
-          <div class="profile-meet__photos" data-coach-photos></div>
-          <h1 class="profile-meet__name" data-coach-name>Daniel Mercer</h1>
-          <div class="profile-meet__details caption" data-coach-details>Leadership &amp; executive coach · San Francisco</div>
+          <div class="profile-meet__head">
+            <div class="profile-meet__avatar img-frame"><img data-coach-avatar src="images/paul.webp" alt="" /></div>
+            <div class="profile-meet__id">
+              <h1 class="profile-meet__name" data-coach-name>Daniel Mercer</h1>
+              <div class="profile-meet__details caption" data-coach-details>Leadership &amp; executive coach · San Francisco</div>
+            </div>
+          </div>
+          <hr class="profile-meet__rule" />
           <p class="profile-meet__bio" data-coach-bio></p>
         </section>
       </article>
@@ -129,15 +134,9 @@
         coach.title + (coach.location ? " · " + coach.location : "");
       document.querySelector('[data-coach-bio]').textContent = coach.bio;
 
-      var photoWrap = document.querySelector('[data-coach-photos]');
-      (coach.photos || []).slice(0, 3).forEach(function (src) {
-        var d = document.createElement('div');
-        d.className = 'profile-meet__photo img-frame';
-        var img = document.createElement('img');
-        img.src = src; img.alt = '';
-        d.appendChild(img);
-        photoWrap.appendChild(d);
-      });
+      var avatar = document.querySelector('[data-coach-avatar]');
+      avatar.src = coach.avatar || (coach.photos && coach.photos[0]) || 'images/paul.webp';
+      avatar.alt = coach.name;
 
       // First-name slots scattered through the form copy
       Array.prototype.forEach.call(
