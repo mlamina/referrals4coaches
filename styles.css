@@ -1243,6 +1243,18 @@ em.serif-italic, .serif-italic {
   letter-spacing: 0.02em;
 }
 
+/* Profile preview inside the mini phone — mirrors profile.html, scaled down */
+.phone-pair .scanned-hint { padding: 32px 14px 10px; gap: 8px; }
+.phone-pair .scanned-hint .caption { font-size: 11px; }
+.phone-pair .scanned-hint__avatar { width: 22px; height: 22px; }
+.phone-pair .profile-card { padding: 22px 18px 26px; }
+.phone-pair .profile-meet__head { gap: 12px; margin-bottom: 14px; align-items: center; }
+.phone-pair .profile-meet__avatar { width: 58px; height: 58px; border-radius: 50%; }
+.phone-pair .profile-meet__name { font-size: 26px; margin: 0 0 4px; }
+.phone-pair .profile-meet__details { font-size: 11px; margin: 0; }
+.phone-pair .profile-meet__rule { border: 0; border-top: 1px solid var(--rule-soft); margin: 0 0 14px; }
+.phone-pair .profile-meet__bio { font-size: 13px; line-height: 1.5; }
+
 .how-row__media:has(.phone-pair-wrap) {
   max-width: 720px;
 }
