@@ -1025,24 +1025,6 @@ em.serif-italic, .serif-italic {
   border: 1px solid var(--rule-soft);
 }
 
-.editor-mock__avatar-edit {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-3);
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1;
-}
-
 .editor-mock__avatar img { object-position: center 18%; }
 .editor-mock__id { min-width: 0; }
 .editor-mock__head .editor-mock__details { margin-bottom: 0; }
