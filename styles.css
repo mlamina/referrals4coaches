@@ -1254,6 +1254,12 @@ em.serif-italic, .serif-italic {
 .phone-pair .profile-meet__details { font-size: 11px; margin: 0; }
 .phone-pair .profile-meet__rule { border: 0; border-top: 1px solid var(--rule-soft); margin: 0 0 14px; }
 .phone-pair .profile-meet__bio { font-size: 13px; line-height: 1.5; }
+.phone-pair .profile-form { padding: 18px; }
+.phone-pair .profile-form .form-intro { font-size: 13.5px; line-height: 1.4; margin-bottom: 14px; }
+.phone-pair .profile-form .field { margin-bottom: 11px; gap: 5px; }
+.phone-pair .profile-form label { font-size: 10px; }
+.phone-pair .profile-form .input { font-size: 12px; padding: 8px 11px; border-radius: 8px; }
+.phone-pair .profile-form .btn { padding: 9px 16px; font-size: 12px; margin-top: 4px; }
 
 .how-row__media:has(.phone-pair-wrap) {
   max-width: 720px;
