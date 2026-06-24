@@ -1043,6 +1043,7 @@ em.serif-italic, .serif-italic {
   line-height: 1;
 }
 
+.editor-mock__avatar img { object-position: center 18%; }
 .editor-mock__id { min-width: 0; }
 .editor-mock__head .editor-mock__details { margin-bottom: 0; }
 
@@ -1487,7 +1488,7 @@ em.serif-italic, .serif-italic {
   margin-bottom: 18px;
   border: 1px solid var(--rule-soft);
 }
-.referral__photo img { object-position: center center; }
+.referral__photo img { object-position: center 18%; }
 
 .referral__name {
   font-family: var(--serif);

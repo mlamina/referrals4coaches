@@ -299,7 +299,7 @@
   border: 1px solid var(--rule-soft);
 }
 
-.profile-meet__avatar img { object-position: center center; }
+.profile-meet__avatar img { object-position: center 18%; }
 
 .profile-meet__id { min-width: 0; }
 
