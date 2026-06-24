@@ -942,6 +942,15 @@ em.serif-italic, .serif-italic {
 }
 .how-row__link:hover { color: var(--ink); }
 
+.inline-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--rule);
+}
+.inline-link:hover { text-decoration-color: currentColor; color: var(--ink); }
+
 /* ── Editor mock (step 1) ────────────────────────────────────── */
 
 .editor-mock {
