@@ -372,6 +372,153 @@ em.serif-italic, .serif-italic {
   text-wrap: pretty;
 }
 
+.scene { max-width: 36rem; margin: 0 auto; }
+
+.scene__lead {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.32;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 36px;
+  text-wrap: pretty;
+}
+
+/* In-person dinner dialogue (spoken, not texting) */
+.dialogue { display: flex; flex-direction: column; gap: 44px; }
+
+.dialogue__turn {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 90%;
+}
+
+.dialogue__turn--them { align-self: flex-start; }
+.dialogue__turn--me {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.dialogue__avatar {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+.dialogue__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.dialogue__name {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 7px;
+}
+
+.dialogue__line {
+  font-family: var(--serif);
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.34;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.scene__caption {
+  text-align: center;
+  margin: 28px auto 0;
+  max-width: 30rem;
+}
+
+/* Email vs. code comparison (dark section) */
+.vs__kicker {
+  font-family: var(--sans);
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.45;
+  color: color-mix(in oklch, var(--on-dark) 72%, transparent);
+  max-width: 42ch;
+  margin: 0 0 52px;
+  text-wrap: pretty;
+}
+
+.vs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(20px, 4vw, 64px);
+  max-width: 60rem;
+}
+
+.vs__head {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid color-mix(in oklch, var(--on-dark) 16%, transparent);
+}
+.vs__head--email { color: color-mix(in oklch, var(--on-dark) 50%, transparent); }
+.vs__head--code { color: var(--accent); }
+
+.vs__cell {
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.38;
+  padding: 20px 0;
+  border-bottom: 1px solid color-mix(in oklch, var(--on-dark) 10%, transparent);
+  text-wrap: pretty;
+}
+.vs__cell--email {
+  color: color-mix(in oklch, var(--on-dark) 52%, transparent);
+}
+.vs__cell--code { color: var(--on-dark); }
+
+.vs__closer {
+  font-family: var(--serif);
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.4;
+  color: var(--on-dark);
+  max-width: 34rem;
+  margin: 48px 0 0;
+  text-wrap: pretty;
+}
+
+@media (max-width: 600px) {
+  .vs { grid-template-columns: 1fr; column-gap: 0; }
+  .vs__head--email { display: none; }
+  .vs__head--code { grid-column: 1; }
+  .vs__cell { padding: 14px 0; border-bottom: none; }
+  .vs__cell--email {
+    padding-bottom: 4px;
+    font-size: 15px;
+  }
+  .vs__cell--email::before {
+    content: "Instead of: ";
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--on-dark) 40%, transparent);
+  }
+  .vs__cell--code {
+    padding-top: 0;
+    padding-bottom: 22px;
+    border-bottom: 1px solid color-mix(in oklch, var(--on-dark) 12%, transparent);
+  }
+}
+
 .lead-in__scroll {
   display: inline-flex;
   align-items: center;
@@ -1144,6 +1291,39 @@ em.serif-italic, .serif-italic {
 }
 
 .inbox__via strong { color: var(--accent); font-weight: 600; }
+
+/* Locked / pay-to-reveal referral state */
+.inbox__item.is-locked { background: color-mix(in oklch, var(--accent) 5%, var(--bg)); }
+
+.inbox__avatar--locked {
+  background: color-mix(in oklch, var(--accent) 10%, var(--bg));
+  font-size: 15px;
+}
+
+.inbox__item.is-locked .inbox__note {
+  filter: blur(3px);
+  opacity: 0.6;
+  user-select: none;
+}
+
+.inbox__lockrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.inbox__reveal {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 4px 12px;
+  flex-shrink: 0;
+}
 
 .editor-mock__name {
   font-family: var(--serif);

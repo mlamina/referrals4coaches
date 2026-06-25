@@ -60,24 +60,48 @@
       </div>
     </section>
 
-    <!-- ── 01b Lead-in ───────────────────────────────────────── -->
-    <section class="lead-in">
+    <!-- ── 01a Scene opener ──────────────────────────────────── -->
+    <section class="section section-tight">
       <div class="container">
-        <div class="lead-in__grid">
-          <div class="lead-in__left">
-            <div class="eyebrow" style="margin-bottom:18px">For coaches tired of chasing cold leads</div>
+        <div class="scene">
+          <div class="eyebrow-muted" style="margin-bottom:10px;text-align:center">a tuesday-night dinner, somewhere across town</div>
+          <p class="scene__lead">Your former client Julie is at dinner. The person beside her has exactly the problem you solve.</p>
+
+          <div class="dialogue">
+            <div class="dialogue__turn dialogue__turn--them">
+              <span class="dialogue__avatar"><img src="images/marcus-headshot.webp" alt="Marcus" /></span>
+              <div class="dialogue__body">
+                <div class="dialogue__name">Marcus · across the table</div>
+                <p class="dialogue__line">“I just took over a team and I'm completely in over my head.”</p>
+              </div>
+            </div>
+            <div class="dialogue__turn dialogue__turn--me">
+              <span class="dialogue__avatar"><img src="images/julie-headshot.webp" alt="Julie" /></span>
+              <div class="dialogue__body">
+                <div class="dialogue__name">Julie · your former client</div>
+                <p class="dialogue__line">“That was me two years ago. You should talk to Diana — she's the reason I figured it out.”</p>
+              </div>
+            </div>
+            <div class="dialogue__turn dialogue__turn--them">
+              <span class="dialogue__avatar"><img src="images/marcus-headshot.webp" alt="" /></span>
+              <div class="dialogue__body">
+                <p class="dialogue__line">“Could you intro us? Email's fine, whatever's easiest.”</p>
+              </div>
+            </div>
+            <div class="dialogue__turn dialogue__turn--me">
+              <span class="dialogue__avatar"><img src="images/julie-headshot.webp" alt="" /></span>
+              <div class="dialogue__body">
+                <p class="dialogue__line">“Even easier — here, scan this.”</p>
+              </div>
+            </div>
           </div>
-          <div class="lead-in__right">
-            <p class="lead-in__sub">
-              Ads are expensive, cold outreach feels gross, and funnels turn you into
-              a marketer instead of a coach. Your best clients always came from someone
-              who already knew you — but you've never had an easy way to put yourself in
-              the hands of the people who'd happily refer you.
-            </p>
-          </div>
+
+          <p class="scene__caption caption">Julie pulls out her phone and shows Marcus a QR code. He scans it then and there — and seconds later, a warm referral is sitting in Diana's inbox.</p>
         </div>
       </div>
     </section>
+
+    <div class="container"><hr class="rule" /></div>
 
     <!-- ── 02 How it works ───────────────────────────────────── -->
     <section class="section section-tight" id="how">
@@ -116,7 +140,7 @@
           </div>
           <div class="how-row__copy">
             <h3 class="how-row__title">You build your profile, once.</h3>
-            <p class="how-row__body">A photo, your title, and a few honest sentences about who you help and how. That's the whole setup.</p>
+            <p class="how-row__body">Before any of this, Diana spent five minutes on a profile — a photo, her title, a few honest sentences about who she helps. She set it once and forgot about it. That's the whole setup.</p>
           </div>
         </div>
 
@@ -208,7 +232,7 @@
           </div>
           <div class="how-row__copy">
             <h3 class="how-row__title">Give each ally a personal link.</h3>
-            <p class="how-row__body">Friends, former clients, peers — anyone who'd vouch for you. They save your link on your contact card in their phone. When they meet someone who could use you, they open it to show your QR code.</p>
+            <p class="how-row__body">Diana sent her link to the people who'd vouch for her — former clients, peers, friends. Julie was one of them. She saved it to Diana's contact card in her phone, then went back to her life. The link just sits there, ready for the next time Julie meets someone who needs a coach.</p>
           </div>
         </div>
 
@@ -222,7 +246,7 @@
           </div>
           <div class="how-row__copy">
             <h3 class="how-row__title">Referring you takes just a few seconds.</h3>
-            <p class="how-row__body">At a dinner, a conference, a school pickup — whenever your ally meets someone and thinks of you, they pull up your link and hand over the QR. The other person scans on their own phone.</p>
+            <p class="how-row__body">So when Marcus started venting at dinner, Julie was ready. No email, no "let me connect you two" that never happens. She pulled up Diana's link and handed over the QR. Marcus scanned it on his own phone, right at the table.</p>
           </div>
         </div>
 
@@ -235,7 +259,7 @@
           </div>
           <div class="how-row__copy">
             <h3 class="how-row__title">That person reaches out — warm, not cold.</h3>
-            <p class="how-row__body">After scanning the QR code, your new potential client sees <a class="inline-link" href="profile.html" target="_blank" rel="noreferrer">your profile</a> and leaves their contact details together with a short note.</p>
+            <p class="how-row__body">On his screen, Marcus saw <em class="serif-italic">Julie thought you two should meet</em> — then <a class="inline-link" href="profile.html" target="_blank" rel="noreferrer">Diana's profile</a>, with Julie's name on it. He left his number and a short note about the team he just took over and the nights it's costing him. To Diana, it'll arrive already trusting her.</p>
           </div>
         </div>
 
@@ -252,12 +276,15 @@
                       <div class="inbox__count">3 new</div>
                     </div>
                     <ul class="inbox__list">
-                      <li class="inbox__item">
-                        <span class="inbox__avatar" aria-hidden="true">M</span>
+                      <li class="inbox__item is-locked">
+                        <span class="inbox__avatar inbox__avatar--locked" aria-hidden="true">🔒</span>
                         <div class="inbox__body">
-                          <div class="inbox__row"><span class="inbox__name">Marcus Webb</span><span class="inbox__time">2h</span></div>
-                          <div class="inbox__note">“Julie said you helped her through a brutal scaling stretch — I'm staring down the same thing.”</div>
-                          <div class="inbox__via">via <strong>Julie</strong></div>
+                          <div class="inbox__row"><span class="inbox__name">New referral</span><span class="inbox__time">2h</span></div>
+                          <div class="inbox__note">“Julie said you helped her when she first started managing people —”</div>
+                          <div class="inbox__lockrow">
+                            <span class="inbox__via">via <strong>Julie</strong></span>
+                            <span class="inbox__reveal">Reveal</span>
+                          </div>
                         </div>
                       </li>
                       <li class="inbox__item">
@@ -284,8 +311,8 @@
             </div>
           </div>
           <div class="how-row__copy">
-            <h3 class="how-row__title">You only pay for real opportunities.</h3>
-            <p class="how-row__body">No subscription, no monthly fee. You pay a small flat fee per referral — and only when a new potential client actually reaches out through your link. If nobody bites, you pay nothing. You're never paying for a tool that sits idle, only for real business opportunities, the moment they land.</p>
+            <h3 class="how-row__title">You only pay to <em class="serif-italic">reveal</em> a real opportunity.</h3>
+            <p class="how-row__body">Later that night, Diana got a notification: a new referral had landed, via Julie. It came in locked — she could see it was real, but not yet who. No subscription, no monthly fee. She paid one small flat fee to unlock it, and there was Marcus, his note, and a warm way in. If nobody bites, you pay nothing. You only ever pay to open a real opportunity, the moment it lands.</p>
           </div>
         </div>
       </div>
@@ -295,17 +322,29 @@
     <section class="section section-dark" id="why">
       <div class="container">
         <div class="eyebrow-on-dark" style="margin-bottom:28px">The mechanics</div>
-        <h2 class="display-l" style="max-width:14ch;margin-bottom:64px;color:var(--on-dark)">
+        <h2 class="display-l" style="max-width:14ch;margin-bottom:18px;color:var(--on-dark)">
           Why this <em class="serif-italic" style="color:var(--accent)">works.</em>
         </h2>
-        <ul class="nots">
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">Warm beats cold, every time.</span> A referral from someone trusted converts where an ad or a cold DM never will.</span></li>
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">The referrer does the vouching.</span> Trust is transferred before you ever speak. You start the conversation already credible.</span></li>
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">Leads arrive pre-qualified.</span> Your allies only show your QR to people who clearly need what you do.</span></li>
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">No ad spend, no funnels.</span> No landing-page tricks, no nurture sequences. Just real introductions in real life.</span></li>
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">Your network becomes a channel.</span> The people who already believe in you can finally refer you without it being awkward.</span></li>
-          <li class="not"><span class="dash" aria-hidden="true">—</span><span><span class="not__lead">You stay in control.</span> Details come in. You reach out to whoever's a fit. Nobody else gets through.</span></li>
-        </ul>
+        <p class="vs__kicker">Sure, a friend could email an intro for you. Here's why Referrals4Coaches beats that every time.</p>
+
+        <div class="vs">
+          <div class="vs__head vs__head--email">The email intro</div>
+          <div class="vs__head vs__head--code">With Referrals4Coaches</div>
+
+          <div class="vs__cell vs__cell--email">“I'll connect you two later” — and later rarely comes.</div>
+          <div class="vs__cell vs__cell--code">The referral happens on the spot — no one has to remember to do it later.</div>
+
+          <div class="vs__cell vs__cell--email">Your friend has to draft the whole intro — a fresh email thread or a LinkedIn message.</div>
+          <div class="vs__cell vs__cell--code">Your friend just turns a phone around. Three seconds.</div>
+
+          <div class="vs__cell vs__cell--email">You're cc'd into a thread with a stranger you both feel obliged to answer.</div>
+          <div class="vs__cell vs__cell--code">They read your profile first, and message you only if it clicks.</div>
+
+          <div class="vs__cell vs__cell--email">A vague “you two should connect” — you've no idea what they actually need yet.</div>
+          <div class="vs__cell vs__cell--code">It comes with their note, in their words — you know what they want before you reply.</div>
+        </div>
+
+        <p class="vs__closer">One small moment, and <em class="serif-italic" style="color:var(--accent)">everyone wins</em> — your friend looks good with zero effort, the right person finds someone they can trust, and you meet a client who already believes in you.</p>
       </div>
     </section>
 
